@@ -7,40 +7,5 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="classpath:musicPlayer.properties"/>
-    <bean id="musicBean"
-          class="org.example1.ClassicalMusic"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy" factory-method="getClassicalMusic" scope="prototype">
-
-        <!--        String name-->
-        <!--        <constructor-arg value="Neil"/>-->
-    </bean>
-
-
-    <bean id="MetalMusicBean" class="org.example1.MetalMusic">
-    </bean>
-    <bean id="RockMusicBean" class="org.example1.RockMusic">
-    </bean>
-
-    <bean id="musicPlayer" class="org.example1.MusicPlayer" scope="prototype">
-
-        <!-- setter setMusic -> set|Music -> name = music -->
-        <property name="music" ref="musicBean"/>
-
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-
-
-                <property name="MusicList">
-                    <list>
-                        <ref bean="musicBean"/>
-                        <ref bean="MetalMusicBean"/>
-                        <ref bean="RockMusicBean"/>
-
-                    </list>
-                </property>
-
-    </bean>
 
 </beans>

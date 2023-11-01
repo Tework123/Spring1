@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 //@Component
 public class MusicPlayer {
@@ -14,6 +15,8 @@ public class MusicPlayer {
     private String name;
     @Value("${musicPlayer.volume}")
     private int volume;
+
+    private List<Music> musicList = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -23,32 +26,22 @@ public class MusicPlayer {
         return volume;
     }
 
-    private Music music1;
-    private Music music2;
-    private Music music3;
 
+    public MusicPlayer(@Qualifier("rockMusic") Music music1, @Qualifier("metalMusic") Music music2, @Qualifier("classicalMusic") Music music3) {
+        this.musicList.add(music1);
+        this.musicList.add(music2);
+        this.musicList.add(music3);
 
-//    @Autowired
-    public MusicPlayer(@Qualifier("rockMusic") Music music1,
-                       @Qualifier("metalMusic") Music music2,
-                       @Qualifier("classicalMusic") Music music3) {
-        this.music1 = music1;
-        this.music2 = music2;
-        this.music3 = music3;
 
     }
 
     public String playMusic(TypeMusic typeMusic) {
         System.out.println("Врубил колбасню");
-        if (typeMusic == TypeMusic.ROCK) {
-            return this.music1.getSong() + "\n" + "Потушил колбасню";
-        } else if (typeMusic == TypeMusic.METAL) {
-            return this.music2.getSong() + "\n" + "Потушил колбасню";
+        Random random = new Random();
+        int index = random.nextInt(musicList.size());
 
-        } else {
-            return this.music3.getSong() + "\n" + "Потушил колбасню";
-
-        }
+        System.out.println("music today: " + musicList.get(index));
+        return "Потушил колбасню";
 
 
     }

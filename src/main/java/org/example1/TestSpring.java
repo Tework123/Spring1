@@ -16,10 +16,11 @@ public class TestSpring {
         computer.getMusicPlayer().playMusic(TypeMusic.METAL);
         System.out.println(computer.getMusicPlayer().getName());
         System.out.println(computer.getMusicPlayer().getVolume());
+        System.out.println(computer.getMusicPlayer().playMusic(TypeMusic.CLASSIC));
 
-        ClassicalMusic classicalMusic = context.getBean("classicalMusic", ClassicalMusic.class);
-        ClassicalMusic classicalMusic2 = context.getBean("classicalMusic", ClassicalMusic.class);
-        System.out.println(classicalMusic2 == classicalMusic);
+//        ClassicalMusic classicalMusic = context.getBean("classicalMusic", ClassicalMusic.class);
+//        ClassicalMusic classicalMusic2 = context.getBean("classicalMusic", ClassicalMusic.class);
+//        System.out.println(classicalMusic2 == classicalMusic);
 
 
         context.close();

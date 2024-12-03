@@ -9,9 +9,9 @@ import java.util.List;
 
 //@Component
 public class ClassicalMusic implements Music {
-    private TypeMusic typeMusic;
+    final private TypeMusic typeMusic = TypeMusic.CLASSIC;
 
-    String[] songs = new String[]{"classic1", "classic2", "classic3"};
+    private String[] songs = new String[]{"classic1", "classic2", "classic3"};
 
     @PostConstruct
     public void init() {
@@ -33,8 +33,11 @@ public class ClassicalMusic implements Music {
 
 
     @Override
-    public String getSong() {
+    public String[] getSong() {
         System.out.println("classical music...");
-        return "classical music...";
+        return this.songs;
+    }
+    public TypeMusic getTypeMusic() {
+        return typeMusic;
     }
 }

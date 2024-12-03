@@ -13,10 +13,10 @@ public class TestSpring {
 
 
         Computer computer = context.getBean("computer", Computer.class);
-        computer.getMusicPlayer().playMusic(TypeMusic.METAL);
-        System.out.println(computer.getMusicPlayer().getName());
-        System.out.println(computer.getMusicPlayer().getVolume());
-        System.out.println(computer.getMusicPlayer().playMusic(TypeMusic.CLASSIC));
+//        computer.getMusicPlayer().playMusic(TypeMusic.METAL);
+//        System.out.println(computer.getMusicPlayer().getName());
+//        System.out.println(computer.getMusicPlayer().getVolume());
+        System.out.println(computer.getMusicPlayer().playMusic(TypeMusic.ROCK));
 
 //        ClassicalMusic classicalMusic = context.getBean("classicalMusic", ClassicalMusic.class);
 //        ClassicalMusic classicalMusic2 = context.getBean("classicalMusic", ClassicalMusic.class);

@@ -21,10 +21,15 @@ public class SpringConfig {
         return new RockMusic();
     }
 
+    @Bean
+    public MetalMusic metalMusic() {
+        return new MetalMusic();
+    }
+
 
     @Bean
     public MusicPlayer musicPlayer() {
-        return new MusicPlayer(rockMusic(), classicalMusic(), rockMusic());
+        return new MusicPlayer(rockMusic(), classicalMusic(), metalMusic());
     }
 
     @Bean

@@ -36,11 +36,18 @@ public class MusicPlayer {
     }
 
     public String playMusic(TypeMusic typeMusic) {
-        System.out.println("Врубил колбасню");
+        System.out.println("Врубил колбасню randomnuy");
+
         Random random = new Random();
         int index = random.nextInt(musicList.size());
 
-        System.out.println("music today: " + musicList.get(index));
+        for (int i = 0; i < musicList.size(); i++) {
+            if (musicList.get(i).getTypeMusic().equals(typeMusic)) {
+                String[] songs = musicList.get(i).getSong();
+                System.out.println("music today: " + songs[index]);
+            }
+        }
+
         return "Потушил колбасню";
 
 
